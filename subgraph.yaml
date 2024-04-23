@@ -1,0 +1,26 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: NFTMarketplace
+    network: sepolia
+    source:
+      address: "0x679736F5B450b58318D85Bd300a8EC144532A34A"
+      abi: NFTMarketplace
+      startBlock: 5759233
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - NFTListedSuccess
+      abis:
+        - name: NFTMarketplace
+          file: ./abis/NFTMarketplace.json
+      eventHandlers:
+        - event: NFTListedSuccess(indexed address,indexed uint256,address,address,uint256,bool)
+          handler: handleNFTListedSuccess
+      file: ./src/nft-marketplace.ts

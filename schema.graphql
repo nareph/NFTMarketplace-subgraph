@@ -1,0 +1,12 @@
+type NFTListedSuccess @entity(immutable: true) {
+  id: Bytes!
+  nftContract: Bytes! # address
+  tokenId: BigInt! # uint256
+  owner: Bytes! # address
+  seller: Bytes! # address
+  price: BigInt! # uint256
+  currentlyListed: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
