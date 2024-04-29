@@ -7,9 +7,9 @@ import {
   afterAll
 } from "matchstick-as/assembly/index"
 import { Address, BigInt } from "@graphprotocol/graph-ts"
-import { NFTListedSuccess } from "../generated/schema"
+import { NFTListedS } from "../generated/schema"
 import { NFTListedSuccess as NFTListedSuccessEvent } from "../generated/NFTMarketplace/NFTMarketplace"
-import { handleNFTListedSuccess } from "../src/nft-marketplace"
+import { handleNFTListed } from "../src/nft-marketplace"
 import { createNFTListedSuccessEvent } from "./nft-marketplace-utils"
 
 // Tests structure (matchstick-as >=0.5.0)
@@ -45,8 +45,8 @@ describe("Describe entity assertions", () => {
   // For more test scenarios, see:
   // https://thegraph.com/docs/en/developer/matchstick/#write-a-unit-test
 
-  test("NFTListedSuccess created and stored", () => {
-    assert.entityCount("NFTListedSuccess", 1)
+  test("NFTListed created and stored", () => {
+    assert.entityCount("NFTListed", 1)
 
     // 0xa16081f360e3847006db660bae1c6d1b2e17ec2a is the default address used in newMockEvent() function
     assert.fieldEquals(
